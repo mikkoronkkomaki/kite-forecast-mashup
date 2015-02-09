@@ -1,12 +1,13 @@
 {
-    "name": "Kite forecast mashup",
+    "name": "kite-forecast-mashup",
     "description": "Kite forecast app",
+    "version": "0.0.1",
+    "private": true,
     "author": "Mikko Rönkkömäki (mikko.ronkkomaki@gmail.com)",
     "dependencies": {
         "express": ">= 1.2.0",
-        "httpsync": ">= 0.1.0"
+        "httpsync": ">= 0.0.8"
     },
-    "engine": "node 0.4.1",
     "repository": {
         "type": "git",
         "url": "https://github.com/mikkoronkkomaki/kite-forecast-mashup/"
