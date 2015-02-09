@@ -5,11 +5,7 @@ Application built for displaying optimal kiteboarding weather for the forthcommi
 Consists of a Node.js back-end that's used to gather and filter the data from available sources. The back-end is used by a simple JS front-end which simply displays the gathered and processed data. 
 plays it in the JS front-end.
 
-# Data Sources #
-
-The required forecast data is fetched from the The Finnish Meteorological Institute (FMI) open data service (http://en.ilmatieteenlaitos.fi/open-data-manual). 
-
-# Description #
+# Back-end #
 
 The back-end application fetches the data from the open FMI api using the following parameters:
 * place: at this time the application is restricted to only work with forecast data for the city of Oulu
@@ -24,7 +20,11 @@ The front-end displays all of the given forecast data and higlights the optimal 
 - Wind gusts must not exceed the predicted windspeed by 2.5 meters per second
 - Temperature has to be either between -20 and -5 (displayed as snow kiting) or above +10 degrees celcius (displayed as kite surffing)
 
+# Front-end #
 
-# Draft of the mashup #
+The user interface of the application displays a simple timeline grid of the hourly forecast data points, displaying the optimal kiteboaring times as highlited with blue for kitesurffing (on water) or snowkiting.
 
-The user interface of the application displays a simple time line grid of the hourly forecast data points, displaying the optimal kiteboaring times as highlited with blue for kitesurffing (on water) or snowkiting.
+
+# Data Sources #
+
+The required forecast data is fetched from the The Finnish Meteorological Institute (FMI) open data service (http://en.ilmatieteenlaitos.fi/open-data-manual). 
