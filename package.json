@@ -1,15 +1,19 @@
 {
-    "name": "kite-forecast-mashup",
-    "description": "Kite forecast app",
-    "version": "0.0.1",
-    "private": true,
-    "author": "Mikko Rönkkömäki (mikko.ronkkomaki@gmail.com)",
-    "dependencies": {
-        "express": ">= 1.2.0",
-        "httpsync": ">= 0.0.8"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/mikkoronkkomaki/kite-forecast-mashup/"
-    }
+  "name": "kite-forecast-mashup",
+  "description": "Kite forecast app",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Mikko Rönkkömäki (mikko.ronkkomaki@gmail.com)",
+  "dependencies": {
+    "date-utils": ">=1.2.16",
+    "express": ">= 1.2.0",
+    "httpsync": ">= 0.0.8",
+    "lodash": "^3.2.0",
+    "xml2js": ">= 0.4.5",
+    "lodash":"3.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikkoronkkomaki/kite-forecast-mashup/"
+  }
 }
