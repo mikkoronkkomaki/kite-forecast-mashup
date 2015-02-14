@@ -5,7 +5,7 @@ var _ = require('lodash');
 function get(){
 	var xml = fmiData.get();
 	var data = parseAsObject(xml);
-	var forecasts = buildForecastPoints(data);
+	var forecasts = buildForecasts(data);
 	var json = JSON.stringify(forecasts);
 
 	//console.log(json);
@@ -22,7 +22,7 @@ function parseAsObject(xml){
 	return data;
 }
 
-function buildForecastPoints(data){
+function buildForecasts(data){
 	var forecastPoints = {};
 
 	_.forEach(data["wfs:FeatureCollection"]["wfs:member"], function(forecast, index) { 
@@ -32,10 +32,8 @@ function buildForecastPoints(data){
 			forecastPoints[timePoint] = {};
 		}
 
-		var attributeName = forecast["BsWfs:BsWfsElement"][0]["BsWfs:ParameterName"];
-		var attributeValue = forecast["BsWfs:BsWfsElement"][0]["BsWfs:ParameterValue"];
-
-		console.log(attributeName);
+		var attributeValue = parseInt(forecast["BsWfs:BsWfsElement"][0]["BsWfs:ParameterValue"][0]);	
+		var attributeName = forecast["BsWfs:BsWfsElement"][0]["BsWfs:ParameterName"];		
 
 		if (attributeName == "windspeedms") {   
 	        forecastPoints[timePoint].windspeed = attributeValue;
@@ -48,8 +46,15 @@ function buildForecastPoints(data){
 		}
 	});
 
-	return forecastPoints;
-}
+	var data = {forecasts:[]};
 
+	_.forEach(Object.keys(forecastPoints), function(key, index) { 
+		var forecast = forecastPoints[key];
+		forecast.time = key;
+		data.forecasts.push(forecast);
+	});
+
+	return data;
+}
 
 exports.get = get;
