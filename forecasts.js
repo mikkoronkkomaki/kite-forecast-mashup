@@ -8,8 +8,6 @@ function get(){
 	var forecasts = buildForecasts(data);
 	var json = JSON.stringify(forecasts);
 
-	//console.log(json);
-
 	return json;
 }
 
