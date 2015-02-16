@@ -96,15 +96,15 @@ var forecasts = function() {
     };
 
     var timeBarY = function(d, i) {
-      return margin.top + i * (barThickness * 2 + barSpace);
+      return margin.top + i * (barThickness + barSpace);
     }
 
-    var bar = g.selectAll(".time-bar").data(data, function(d) { return d.time; });
+    var bar1 = g.selectAll(".time-bar1").data(data, function(d) { return d.time; });
 
     var titleText = g.selectAll('.forecast-title').data(data, function(d) { return d.time; });
 
     // UPDATE existing
-    bar
+    bar1
       .style("fill", bgColor)
       .attr("x", timeBarX)
       .attr("y", timeBarY);
@@ -114,9 +114,9 @@ var forecasts = function() {
       .attr("y", timeBarY);
 
     // ENTER
-    bar.enter()
+    bar1.enter()
       .append("rect")
-        .attr("class", "time-bar")
+        .attr("class", "time-bar1")
         .attr("x", timeBarX)
         .attr("y", timeBarY)
         .attr("width", function(d) { 
@@ -143,7 +143,7 @@ var forecasts = function() {
           .text(function(d) { return "Voje:" + d.time 
         });
 
-    bar.transition()
+    bar1.transition()
       .duration(750)
       .style("fill-opacity", 1);
 
@@ -159,13 +159,90 @@ var forecasts = function() {
 
 
     // EXIT
-    bar.exit()
+    bar1.exit()
       .transition()
         .duration(2000)
         .attr("x", 1000)
         .attr("y", 1000)
         .attr("fill", "red")
       .remove();
+
+    var bar2 = g.selectAll(".time-bar2").data(data, function(d) { return d.time; });
+
+    var timeBar2X = function(d, i) {
+      return 10;
+    };
+
+    var timeBar2Y = function(d, i) {
+      return margin.top + i * (barThickness + barSpace) + 25;
+    }
+
+    titleText = g.selectAll('.forecast-title').data(data, function(d) { return d.time; });
+
+    // UPDATE existing
+    bar2
+      .style("fill", bgColor)
+      .attr("x", timeBar2X)
+      .attr("y", timeBar2Y);
+
+    titleText
+      .attr("x", timeBar2X)
+      .attr("y", timeBar2Y);
+
+    // ENTER
+    bar2.enter()
+      .append("rect")
+        .attr("class", "time-bar2")
+        .attr("x", timeBar2X)
+        .attr("y", timeBar2Y)
+        .attr("width", function(d) { 
+          var windspeed = d.windgust;
+          if (windspeed === null) {
+            windspeed = 0;
+          };
+          return x(windspeed); 
+        })
+        .attr("height", barThickness)
+        .style("fill", "#ffff00")
+        .style("fill-opacity", 1e-6)
+        .on("click", function(d) {
+          data = _.filter(data, function(item) { return item.time != d.time});
+          update();
+        })
+        .on("mouseover", function(d) {
+          d3.select(this).style("fill", "#0066ff");
+        })
+        .on("mouseout", function(d) {
+          d3.select(this).style("fill", bgColor);
+        })
+        .append("title")
+          .text(function(d) { return "Voje:" + d.time 
+        });
+
+    bar2.transition()
+      .duration(750)
+      .style("fill-opacity", 1);
+
+    titleText.enter()
+      .append('text')
+      .attr('x', timeBar2X)
+      .attr('y', timeBar2Y)
+      .attr('dy', 16)
+      .text(function(d) {
+        return "Time: " + d.time + " Wind gusts: " + d.windgust;
+      })
+      .style('font-weigth', 'bold');
+
+
+    // EXIT
+    bar2.exit()
+      .transition()
+        .duration(2000)
+        .attr("x", 1000)
+        .attr("y", 1000)
+        .attr("fill", "red")
+      .remove();
+
 
   };
 
