@@ -76,10 +76,10 @@ var forecasts = function() {
   var update = function() {
     var g = d3.select(".chart");
 
-    var maxParticipants = 99;
+    var maxWindspeed = 40;
 
     var x = d3.scale.linear()
-        .domain([0, maxParticipants])
+        .domain([0, maxWindspeed])
         .range([0, 1000]);
 
     var barThickness = 20;
@@ -91,42 +91,46 @@ var forecasts = function() {
       return colorScale(d.category);
     };
 
-    var courseX = function(d, i) {
+    var timeBarX = function(d, i) {
       return 10;
     };
 
-    var courseY = function(d, i) {
-      return margin.top + i * (barThickness + barSpace);
+    var timeBarY = function(d, i) {
+      return margin.top + i * (barThickness * 2 + barSpace);
     }
 
-    var bar = g.selectAll(".wind-bar")
-      .data(data, function(d) { return d.time; });
+    var bar = g.selectAll(".time-bar").data(data, function(d) { return d.time; });
 
-    var titleText = g.selectAll('.course-title')
-      .data(data, function(d) { return d.time; });
+    var titleText = g.selectAll('.forecast-title').data(data, function(d) { return d.time; });
 
     // UPDATE existing
     bar
       .style("fill", bgColor)
-      .attr("x", courseX)
-      .attr("y", courseY);
+      .attr("x", timeBarX)
+      .attr("y", timeBarY);
 
     titleText
-      .attr("x", courseX)
-      .attr("y", courseY);
+      .attr("x", timeBarX)
+      .attr("y", timeBarY);
 
     // ENTER
     bar.enter()
       .append("rect")
-        .attr("class", "wind-bar")
-        .attr("x", courseX)
-        .attr("y", courseY)
-        .attr("width", function(d) { return x(d.windspeed) })
+        .attr("class", "time-bar")
+        .attr("x", timeBarX)
+        .attr("y", timeBarY)
+        .attr("width", function(d) { 
+          var windspeed = d.windspeed;
+          if (windspeed === null) {
+            windspeed = 0;
+          };
+          return x(windspeed); 
+        })
         .attr("height", barThickness)
         .style("fill", "#ffff00")
         .style("fill-opacity", 1e-6)
         .on("click", function(d) {
-          data = _.filter(data, function(item) { return item.id != d.id});
+          data = _.filter(data, function(item) { return item.time != d.time});
           update();
         })
         .on("mouseover", function(d) {
@@ -136,7 +140,7 @@ var forecasts = function() {
           d3.select(this).style("fill", bgColor);
         })
         .append("title")
-          .text(function(d) { return "Time:" + d.time 
+          .text(function(d) { return "Voje:" + d.time 
         });
 
     bar.transition()
@@ -145,11 +149,11 @@ var forecasts = function() {
 
     titleText.enter()
       .append('text')
-      .attr('x', courseX)
-      .attr('y', courseY)
+      .attr('x', timeBarX)
+      .attr('y', timeBarY)
       .attr('dy', 16)
       .text(function(d) {
-        return "Time: " + d.time;
+        return "Time: " + d.time + " Wind speed: " + d.windspeed;
       })
       .style('font-weigth', 'bold');
 

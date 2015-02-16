@@ -2,7 +2,7 @@ var httpsync = require('httpsync');
 var dateUtils = require('date-utils');
 
 function get(){
-	var startTime = Date.today().toISOString().replace(".000", "");
+	var startTime = Date.today().add({days: 1}).toISOString().replace(".000", "");
 	var endTime = Date.today().add({days: 3}).toISOString().replace(".000", "");
 
 	console.log("Fetching FMI data");
