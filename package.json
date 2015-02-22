@@ -1,7 +1,6 @@
 {
-  "name": "SocketIO-Openshift-Example",
-  "version": "1.0.0",
-  "description": "socketio-openshift-example",
+  "name": "Oulu Kite Forecast",
+  "version": "0.0.1",
   "keywords": [
     "openshift",
     "Node.js",
@@ -13,10 +12,9 @@
     "name": "Mikko Rönkkömäki",
     "email": "mikko.ronkkomaki@gmail.com"
   },
-  "homepage": "https://leanpub.com/jvanhalen",
   "repository": {
     "type": "git",
-    "url": "https://www.github.com/nodebooks"
+    "url": "https://github.com/mikkoronkkomaki/kite-forecast-mashup"
   },
   "engines": {
     "node": ">= 0.10.0",

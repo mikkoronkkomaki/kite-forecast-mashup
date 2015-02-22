@@ -20,7 +20,6 @@ app.get('/api/config', function(req, res) {
   res.send('var config = ' + JSON.stringify(config));
 });
 
-// Web socket
 var io = require('socket.io')(server);
 var socket;
 
@@ -29,7 +28,6 @@ server.listen(config.serverport, config.serverip, function() {
   console.log("Server running @ http://" + config.serverip + ":" + config.serverport);
 });
 
-// when the client connects, update data for the first time
 io.on('connection', function (sckt) {
   socket = sckt;
   updateData();

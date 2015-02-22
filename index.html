@@ -16,7 +16,7 @@
     <script src="./api/config"></script>
 
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="includes/app.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
 
     <title>Oulu Kite Forecast</title>
 
@@ -67,13 +67,21 @@
             </div>
 
         </div>
+
+        <div class="row">
+            <div id="top"> Connecting to websocket...
+            </div>
+        </div>
+
     </div>
     <script>
 
         var updateView = function(data){
-           $.getJSON("data/forecasts.json", function (data) {
-                ko.applyBindings(data);
-            });
+            if(data){
+                var foo = {};
+                foo.forecasts = data;
+                ko.applyBindings(foo);
+            }
         }
 
         $(document).ready(function () {
@@ -104,6 +112,8 @@
             if (windDirection >= 292.5 && windDirection <= 337.5) return "North West";
             if (windDirection <= 22.5 || windDirection <= 337.5) return "North";
         }
+
+
 
     </script>
 
