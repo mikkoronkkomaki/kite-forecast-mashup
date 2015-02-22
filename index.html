@@ -1,47 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.1.0/lodash.min.js"></script>
-  <script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <script src="./client.js"></script>
-  <script src="./api/config"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.1.0/lodash.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js"></script>
+    <script src="./client.js"></script>
+    <script src="./api/config"></script>
+    
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="includes/app.css" rel="stylesheet">
+    
+    <title>Oulu Kite Forecast</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.min.css">
-  <title>Kite Forecast</title>
-
-  <style>
-    body {
-      background: #eeeeee;
-    }
-  </style>
 </head>
 
 <body>
 
-</div>
-  <div class="row">
-    <h1>Kite Forecast</h1>
-  </div>
+<div class="container">
 
-  <div class="row">
-    <div class="infograph">
-      <svg class="chart" width="1000" height="563" style="background: white">
+    <div class="row">
+        <h1>Oulu Kite Forecast</h1>
     </div>
-  </div>
 
-  <div class="row">
-    <div id="top"Connecting to websocket...</div>
-  </div>
+    <div class="col-sm-4">
 
-  <script>
-    window.onload = function() {
-      var infograph = forecasts();
-      infograph.init();
-      infograph.update();
-    };
-  </script>
+        <div data-bind="foreach: { data: forecasts, as: 'forecast' }">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 data-bind="text: moment(forecast.time).format('LLL')" class="panel-title"></h3>
+                </div>
+
+                <div class="panel-body">
+
+                    <form role="form">
+                        <div class="form-group">
+                            <div class=""
+                                 data-bind="attr: { style: 'width:' + forecast.windspeed * 10 + 'px', class: 'bar ' + getWindBarColor(forecast.windspeed)  }"
+                                 style=""></div>
+                            <label data-bind="text: forecast.windspeed +'&nbsp;m/s'"></label>
+                        </div>
+                        <div class="form-group">
+                            <div class=""
+                                 data-bind="attr: { style: 'width:' + forecast.windgust * 10 + 'px', class: 'bar ' + getWindBarColor(forecast.windgust) }"
+                                 style=""></div>
+                            <label data-bind="text: forecast.windgust +'&nbsp;m/s'"></label>
+                        </div>
+                        <div class="form-group">
+                            <label data-bind="text: forecast.winddirection"></label>
+                        </div>
+                        <div class="form-group">
+                            <label data-bind="text: forecast.temperature"></label>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+
+        var updateView = function(data){
+           $.getJSON("data/forecasts.json", function (data) {
+                ko.applyBindings(data);
+            });
+        }
+
+        $(document).ready(function () {
+            var locale = window.navigator.userLanguage || window.navigator.language;
+            moment.locale(locale);
+
+            var foo = client();
+            foo.init(updateView);
+            foo.update();
+        });
+
+
+        var getWindBarColor = function(windspeed) {
+            if (!windspeed) return "bar-grey";
+            if (windspeed < 7) return "bar-blue";
+            if (windspeed < 12) return "bar-green";
+            if (windspeed < 15) return "bar-yellow";
+            return "bar-red";
+        }
+
+    </script>
+
+</div>
+
 </body>
 </html>
