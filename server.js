@@ -38,8 +38,6 @@ var updateData = function() {
 
   socket.emit('forecast-update', { data: data });
 
-  console.log("Forecasts:" + data);
-
   // Wait for 30 seconds. And then update the data again.
   setTimeout(updateData, 30000);
 

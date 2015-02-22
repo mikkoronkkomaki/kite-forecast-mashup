@@ -1,5 +1,5 @@
 {
-  "name": "Oulu Kite Forecast",
+  "name": "Oulu-Kite-Forecast",
   "version": "0.0.1",
   "keywords": [
     "openshift",
@@ -26,7 +26,8 @@
     "socket.io": "~1.0.1",
     "date-utils": ">=1.2.16",
     "httpsync": ">= 0.0.8",
-    "xml2js": ">= 0.4.5"
+    "xml2js": ">= 0.4.5",
+    "moment": ">=2.9.0"
   },
   "devDependencies": {},
   "bundleDependencies": [],

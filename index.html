@@ -59,7 +59,7 @@
                             <label data-bind="text: getWindDirection(forecast.winddirection) + ' (' + forecast.winddirection + ')'"></label>
                         </div>
                         <div class="form-group">
-                            <label data-bind="text: 'Temperature: ' + forecast.temperature.toString() + '°C'"></label>
+                            <label data-bind="text: 'Temperature: ' + getTemperature(forecast.temperature) + '°C'"></label>
                         </div>
                     </form>
 
@@ -113,7 +113,10 @@
             if (windDirection <= 22.5 || windDirection <= 337.5) return "North";
         }
 
-
+        var getTemperature = function(temperature){
+            if (temperature !== null) return temperature.toString();
+            return "not found";
+        }
 
     </script>
 

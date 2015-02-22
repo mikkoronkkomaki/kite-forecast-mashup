@@ -1,9 +1,11 @@
 var httpsync = require('httpsync');
 var dateUtils = require('date-utils');
+var moment = require('moment');
 
 function get(){
-	var startTime = Date.today().add({days: 1}).toISOString().replace(".000", "");
-	var endTime = Date.today().add({days: 3}).toISOString().replace(".000", "");
+	var dateFormat = "YYYY-MM-DDTHH:mm:ss"
+	var startTime = moment(Date.now()).format(dateFormat) + "Z";
+	var endTime = moment(Date.today().add({days: 7})).format(dateFormat)+ "Z";
 
 	console.log("Fetching FMI data");
 	console.log("Start time: " + startTime);
