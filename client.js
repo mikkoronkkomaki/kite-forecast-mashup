@@ -29,14 +29,12 @@ var client = function() {
       document.getElementById('top').innerHTML = "Disconnected.";
     });
 
-    // Listen for server hello event
     socket.on('forecast-update', function (e) {
       console.log("Server says:", e.data);
       data = JSON.parse(e.data).forecasts;
       update();
     });
 
-    // pong to our ping
     socket.on('pong', function (data) {
       if(data.id == self.pingtime) {
         document.getElementById('ping').innerHTML = Date.now() - self.pingtime + " ms";
@@ -47,15 +45,6 @@ var client = function() {
     });
 
   }
-
-  var colorScale = d3.scale.category10();
-
-  var margin = {
-    top: 24,
-    bottom: 24,
-    left: 24,
-    right: 24
-  };
 
   var update = function() {
       updateCallback(data);

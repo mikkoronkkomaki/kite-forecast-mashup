@@ -14,10 +14,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js"></script>
     <script src="./client.js"></script>
     <script src="./api/config"></script>
-    
+
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="includes/app.css" rel="stylesheet">
-    
+
     <title>Oulu Kite Forecast</title>
 
 </head>
@@ -46,19 +46,20 @@
                             <div class=""
                                  data-bind="attr: { style: 'width:' + forecast.windspeed * 10 + 'px', class: 'bar ' + getWindBarColor(forecast.windspeed)  }"
                                  style=""></div>
-                            <label data-bind="text: forecast.windspeed +'&nbsp;m/s'"></label>
+                            <label data-bind="text: forecast.windspeed +'&nbsp;m/s (Wind speed)'"></label>
                         </div>
                         <div class="form-group">
                             <div class=""
                                  data-bind="attr: { style: 'width:' + forecast.windgust * 10 + 'px', class: 'bar ' + getWindBarColor(forecast.windgust) }"
                                  style=""></div>
-                            <label data-bind="text: forecast.windgust +'&nbsp;m/s'"></label>
+                            <label data-bind="text: forecast.windgust +'&nbsp;m/s (Wind gusts)'"></label>
                         </div>
                         <div class="form-group">
-                            <label data-bind="text: forecast.winddirection"></label>
+                            <label>Wind direction: </label>
+                            <label data-bind="text: getWindDirection(forecast.winddirection) + ' (' + forecast.winddirection + ')'"></label>
                         </div>
                         <div class="form-group">
-                            <label data-bind="text: forecast.temperature"></label>
+                            <label data-bind="text: 'Temperature: ' + forecast.temperature.toString() + '°C'"></label>
                         </div>
                     </form>
 
@@ -79,9 +80,9 @@
             var locale = window.navigator.userLanguage || window.navigator.language;
             moment.locale(locale);
 
-            var foo = client();
-            foo.init(updateView);
-            foo.update();
+            var c = client();
+            c.init(updateView);
+            c.update();
         });
 
 
@@ -91,6 +92,17 @@
             if (windspeed < 12) return "bar-green";
             if (windspeed < 15) return "bar-yellow";
             return "bar-red";
+        }
+
+        var getWindDirection = function(windDirection){
+            if (windDirection >= 22.5 && windDirection <= 67.5) return "North East";
+            if (windDirection >= 67.5 && windDirection <= 112.5) return "East";
+            if (windDirection >= 112.5 && windDirection <= 157.5) return "South East";
+            if (windDirection >= 157.5 && windDirection <= 202.5) return "South";
+            if (windDirection >= 202.5 && windDirection <= 247.5) return "South West";
+            if (windDirection >= 247.5 && windDirection <= 292.5) return "West";
+            if (windDirection >= 292.5 && windDirection <= 337.5) return "North West";
+            if (windDirection <= 22.5 || windDirection <= 337.5) return "North";
         }
 
     </script>
