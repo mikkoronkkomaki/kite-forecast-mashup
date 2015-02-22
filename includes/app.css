@@ -1,0 +1,34 @@
+.bar {
+	width: 8px;
+	height: 16px;
+	display: inline-block;
+	vertical-align: baseline;
+	border: 1px solid hsl(103, 31%, 65%);
+}
+
+.bar-grey {
+	background-color: hsla(0, 0%, 50%, 1);
+	border-color:hsla(0, 0%, 20%, 1);
+}
+
+.bar-blue {
+	background-color: hsla(201, 65%, 50%, 1);	
+	border-color: hsla(201, 65%, 20%, 1);
+}
+
+.bar-green {
+	background-color: hsla(110, 65%, 50%, 1);
+	border-color: hsla(110, 65%, 20%, 1);	
+}
+
+.bar-yellow {
+	background-color: hsla(50, 65%, 50%, 1);	
+	border-color: hsla(50, 65%, 20%, 1);
+}
+
+.bar-red {
+	background-color: hsla(0, 65%, 50%, 1);
+	border-color: hsla(0, 65%, 20%, 1);	
+}
+
+

@@ -1,0 +1,347 @@
+{
+    "forecasts": [
+        {
+            "windspeed": 13,
+            "winddirection": 177,
+            "windgust": 16,
+            "temperature": 1,
+            "time": "2015-02-21T22:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 181,
+            "windgust": 6,
+            "temperature": 0,
+            "time": "2015-02-21T23:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 171,
+            "windgust": 5,
+            "temperature": 0,
+            "time": "2015-02-22T00:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 163,
+            "windgust": 5,
+            "temperature": 0,
+            "time": "2015-02-22T01:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 162,
+            "windgust": 6,
+            "temperature": 0,
+            "time": "2015-02-22T02:00:00Z"
+        },
+        {
+            "windspeed": 2,
+            "winddirection": 154,
+            "windgust": 5,
+            "temperature": 0,
+            "time": "2015-02-22T03:00:00Z"
+        },
+        {
+            "windspeed": 2,
+            "winddirection": 148,
+            "windgust": 5,
+            "temperature": 0,
+            "time": "2015-02-22T04:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 151,
+            "windgust": 5,
+            "temperature": 0,
+            "time": "2015-02-22T05:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 155,
+            "windgust": 5,
+            "temperature": 0,
+            "time": "2015-02-22T06:00:00Z"
+        },
+        {
+            "windspeed": 2,
+            "winddirection": 147,
+            "windgust": 5,
+            "temperature": 0,
+            "time": "2015-02-22T07:00:00Z"
+        },
+        {
+            "windspeed": 2,
+            "winddirection": 143,
+            "windgust": 4,
+            "temperature": 0,
+            "time": "2015-02-22T08:00:00Z"
+        },
+        {
+            "windspeed": 1,
+            "winddirection": 134,
+            "windgust": 3,
+            "temperature": 0,
+            "time": "2015-02-22T09:00:00Z"
+        },
+        {
+            "windspeed": 1,
+            "winddirection": 122,
+            "windgust": 2,
+            "temperature": 0,
+            "time": "2015-02-22T10:00:00Z"
+        },
+        {
+            "windspeed": 1,
+            "winddirection": 132,
+            "windgust": 2,
+            "temperature": 0,
+            "time": "2015-02-22T11:00:00Z"
+        },
+        {
+            "windspeed": 0,
+            "winddirection": 165,
+            "windgust": 1,
+            "temperature": 0,
+            "time": "2015-02-22T12:00:00Z"
+        },
+        {
+            "windspeed": 0,
+            "winddirection": 271,
+            "windgust": 1,
+            "temperature": 0,
+            "time": "2015-02-22T13:00:00Z"
+        },
+        {
+            "windspeed": 2,
+            "winddirection": 267,
+            "windgust": 4,
+            "temperature": 0,
+            "time": "2015-02-22T14:00:00Z"
+        },
+        {
+            "windspeed": 2,
+            "winddirection": 252,
+            "windgust": 4,
+            "temperature": 0,
+            "time": "2015-02-22T15:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 250,
+            "windgust": 6,
+            "temperature": 0,
+            "time": "2015-02-22T16:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 242,
+            "windgust": 7,
+            "temperature": 0,
+            "time": "2015-02-22T17:00:00Z"
+        },
+        {
+            "windspeed": 5,
+            "winddirection": 244,
+            "windgust": 10,
+            "temperature": 0,
+            "time": "2015-02-22T18:00:00Z"
+        },
+        {
+            "windspeed": 5,
+            "winddirection": 243,
+            "windgust": 10,
+            "temperature": 0,
+            "time": "2015-02-22T19:00:00Z"
+        },
+        {
+            "windspeed": 4,
+            "winddirection": 236,
+            "windgust": 9,
+            "temperature": 0,
+            "time": "2015-02-22T20:00:00Z"
+        },
+        {
+            "windspeed": 5,
+            "winddirection": 233,
+            "windgust": 10,
+            "temperature": 0,
+            "time": "2015-02-22T21:00:00Z"
+        },
+        {
+            "windspeed": 5,
+            "winddirection": 234,
+            "windgust": 10,
+            "temperature": 0,
+            "time": "2015-02-22T22:00:00Z"
+        },
+        {
+            "windspeed": 4,
+            "winddirection": 239,
+            "windgust": 8,
+            "temperature": 0,
+            "time": "2015-02-22T23:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 237,
+            "windgust": 7,
+            "temperature": 0,
+            "time": "2015-02-23T00:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 231,
+            "windgust": 6,
+            "temperature": -1,
+            "time": "2015-02-23T01:00:00Z"
+        },
+        {
+            "windspeed": 2,
+            "winddirection": 224,
+            "windgust": 5,
+            "temperature": -2,
+            "time": "2015-02-23T02:00:00Z"
+        },
+        {
+            "windspeed": 2,
+            "winddirection": 209,
+            "windgust": 4,
+            "temperature": -2,
+            "time": "2015-02-23T03:00:00Z"
+        },
+        {
+            "windspeed": 2,
+            "winddirection": 205,
+            "windgust": 4,
+            "temperature": -3,
+            "time": "2015-02-23T04:00:00Z"
+        },
+        {
+            "windspeed": 2,
+            "winddirection": 199,
+            "windgust": 4,
+            "temperature": -3,
+            "time": "2015-02-23T05:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 190,
+            "windgust": 5,
+            "temperature": -2,
+            "time": "2015-02-23T06:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 185,
+            "windgust": 6,
+            "temperature": -2,
+            "time": "2015-02-23T07:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 180,
+            "windgust": 6,
+            "temperature": -2,
+            "time": "2015-02-23T08:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 167,
+            "windgust": 5,
+            "temperature": -3,
+            "time": "2015-02-23T09:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 165,
+            "windgust": 6,
+            "temperature": -3,
+            "time": "2015-02-23T10:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 153,
+            "windgust": 6,
+            "temperature": -2,
+            "time": "2015-02-23T11:00:00Z"
+        },
+        {
+            "windspeed": 3,
+            "winddirection": 146,
+            "windgust": 6,
+            "temperature": -2,
+            "time": "2015-02-23T12:00:00Z"
+        },
+        {
+            "windspeed": null,
+            "winddirection": null,
+            "windgust": null,
+            "temperature": null,
+            "time": "2015-02-23T13:00:00Z"
+        },
+        {
+            "windspeed": null,
+            "winddirection": null,
+            "windgust": null,
+            "temperature": null,
+            "time": "2015-02-23T14:00:00Z"
+        },
+        {
+            "windspeed": null,
+            "winddirection": null,
+            "windgust": null,
+            "temperature": null,
+            "time": "2015-02-23T15:00:00Z"
+        },
+        {
+            "windspeed": null,
+            "winddirection": null,
+            "windgust": null,
+            "temperature": null,
+            "time": "2015-02-23T16:00:00Z"
+        },
+        {
+            "windspeed": null,
+            "winddirection": null,
+            "windgust": null,
+            "temperature": null,
+            "time": "2015-02-23T17:00:00Z"
+        },
+        {
+            "windspeed": null,
+            "winddirection": null,
+            "windgust": null,
+            "temperature": null,
+            "time": "2015-02-23T18:00:00Z"
+        },
+        {
+            "windspeed": null,
+            "winddirection": null,
+            "windgust": null,
+            "temperature": null,
+            "time": "2015-02-23T19:00:00Z"
+        },
+        {
+            "windspeed": null,
+            "winddirection": null,
+            "windgust": null,
+            "temperature": null,
+            "time": "2015-02-23T20:00:00Z"
+        },
+        {
+            "windspeed": null,
+            "winddirection": null,
+            "windgust": null,
+            "temperature": null,
+            "time": "2015-02-23T21:00:00Z"
+        },
+        {
+            "windspeed": null,
+            "winddirection": null,
+            "windgust": null,
+            "temperature": null,
+            "time": "2015-02-23T22:00:00Z"
+        }
+    ]
+}
